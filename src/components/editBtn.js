@@ -7,7 +7,7 @@ class EditBtn extends Component{
 
     render(){
         return(
-            <button>Edit</button>    
+            <button onClick={this.props.onClick}>Edit</button>    
         )
     }
 }
