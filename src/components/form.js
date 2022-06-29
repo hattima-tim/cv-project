@@ -18,13 +18,13 @@ class Form extends Component{
         return(
             <form onSubmit={this.handleSubmit}>   
                 <label htmlFor='firstName'>First Name</label>
-                <input type='text' name='firstName' id='firstName' required></input>
+                <input type='text' name='firstName' id='firstName' defaultValue={this.props.previousValues.firstName ||''} required></input>
                 <label htmlFor='lastName'>Last Name</label>
-                <input type='text' name='lastName' id='lastName' required></input>
+                <input type='text' name='lastName' id='lastName' defaultValue={this.props.previousValues.lastName ||''} required></input>
                 <label htmlFor='email'>Email</label>
-                <input type='email' name='email' id='email' required></input>
+                <input type='email' name='email' id='email' defaultValue={this.props.previousValues.email ||''} required></input>
                 <label htmlFor='phone'>Phone Number</label>
-                <input type='tel' name='phone' id='phone' required></input>
+                <input type='tel' name='phone' id='phone' defaultValue={this.props.previousValues.phone ||''} required></input>
                 <button type='submit'>Save</button>
             </form>
         )
