@@ -21,19 +21,19 @@ class Form extends Component{
                 <form onSubmit={this.handleSubmit}>   
                     <div className='form_item'>
                         <label htmlFor='firstName'>First Name</label><br/>
-                        <input type='text' name='firstName' id='firstName' defaultValue={this.props.previousValues.firstName ||''} required></input>    
+                        <input type='text' name='firstName' id='firstName' placeholder='First Name' defaultValue={this.props.previousValues.firstName ||''} required></input>    
                     </div>
                     <div className='form_item'>
                         <label htmlFor='lastName'>Last Name</label><br/>
-                        <input type='text' name='lastName' id='lastName' defaultValue={this.props.previousValues.lastName ||''} required></input>
+                        <input type='text' name='lastName' id='lastName' placeholder='Last Name' defaultValue={this.props.previousValues.lastName ||''} required></input>
                     </div>
                     <div className='form_item'>
                         <label htmlFor='email'>Email</label><br/>
-                        <input type='email' name='email' id='email' defaultValue={this.props.previousValues.email ||''} required></input>
+                        <input type='email' name='email' id='email' placeholder='example@gmail.com' defaultValue={this.props.previousValues.email ||''} required></input>
                     </div>
                     <div className='form_item'>
                         <label htmlFor='phone'>Phone Number</label><br/>
-                        <input type='tel' name='phone' id='phone' defaultValue={this.props.previousValues.phone ||''} required></input>
+                        <input type='tel' name='phone' id='phone' placeholder='123-456-7890' defaultValue={this.props.previousValues.phone ||''} required></input>
                     </div>
                 </form>
                 <button type='submit'>Save</button>
