@@ -8,17 +8,17 @@ class Form extends Component{
 
     handleSubmit=(e)=>{
         e.preventDefault();
-        const firstName=e.target.childNodes[1].value;
-        const lastName=e.target.childNodes[3].value;
-        const email=e.target.childNodes[5].value;
-        const phone=e.target.childNodes[7].value;
+        const firstName=e.target.previousSibling[0].value;
+        const lastName=e.target.previousSibling[1].value;
+        const email=e.target.previousSibling[2].value;
+        const phone=e.target.previousSibling[3].value;
         this.props.input({firstName,lastName,email,phone})
     }
 
     render(){
         return(
             <div>
-                <form onSubmit={this.handleSubmit}>   
+                <form>   
                     <div className='form_item'>
                         <label htmlFor='firstName'>First Name</label><br/>
                         <input type='text' name='firstName' id='firstName' placeholder='First Name' defaultValue={this.props.previousValues.firstName ||''} required></input>    
@@ -36,7 +36,7 @@ class Form extends Component{
                         <input type='tel' name='phone' id='phone' placeholder='123-456-7890' defaultValue={this.props.previousValues.phone ||''} required></input>
                     </div>
                 </form>
-                <button type='submit'>Save</button>
+                <button onClick={this.handleSubmit}>Save</button>
             </div>
         )
     }
