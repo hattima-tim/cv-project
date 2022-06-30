@@ -1,6 +1,7 @@
 import {Component} from 'react';
 import Form from './form';
 import EditBtn from './editBtn';
+import "../styles/generalInfo.css"
 
 class GeneralInfo extends Component{
   constructor(props){
@@ -26,17 +27,13 @@ class GeneralInfo extends Component{
 
   render(){
     return(
-        <div>
+        <div className='generalInfo_container'>
             <h2>General Information</h2>
             {this.state.info==='' && this.state.editOn===false &&
-                <div>
                   <Form input={this.getInput} previousValues={this.state.info}/>
-                </div> 
             }
             {this.state.info!=='' && this.state.editOn===true &&
-                <div>
                   <Form input={this.getInput} previousValues={this.state.info}/>
-                </div>
             }
             {this.state.info!=='' && this.state.editOn===false &&
               <div>
