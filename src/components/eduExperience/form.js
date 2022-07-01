@@ -2,18 +2,15 @@ import {Component} from 'react';
 import '../../styles/form.css'
 
 class Form extends Component{
-    constructor(props){
-        super(props)
-    }
 
     handleSubmit=(e)=>{
         e.preventDefault();
-        console.log(e.target.previousSibling)
         const schoolName=e.target.previousSibling[0].value;
         const titleOfStudy=e.target.previousSibling[1].value;
         const from=e.target.previousSibling[2].value;
         const to=e.target.previousSibling[3].value;
-        this.props.input({schoolName,titleOfStudy,from,to})
+        const editedExpNumberForEditedSubmit=this.props.editedExpNum;
+        this.props.input({schoolName,titleOfStudy,from,to},editedExpNumberForEditedSubmit)
     }
 
     render(){
