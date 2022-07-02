@@ -35,6 +35,9 @@ class Form extends Component{
                     </div>
                 </form>
                 <button onClick={this.handleSubmit}>Save</button>
+                <button 
+                    id={this.props.editedExpNum} 
+                    onClick={this.props.handleDelete}>Delete</button>
             </div>
         )
     }
