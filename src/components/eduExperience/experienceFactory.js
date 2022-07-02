@@ -14,7 +14,12 @@ class ExperienceFactory extends Component{
             //undefined: when the current exp from map loop is not being edited
             //exp: when the current exp from map loop is being edited
             if(editIsOnForThisExp){
-                return <Form key={id} editedExpNum={index} input={this.props.input} previousValues={editIsOnForThisExp[0]}/>
+                return <Form 
+                    key={id} 
+                    editedExpNum={editIsOnForThisExp[1]} 
+                    input={this.props.input} 
+                    previousValues={editIsOnForThisExp[0]}
+                    handleDelete={this.props.handleDelete}/>
             }
             return(
                 <div key={id}>
