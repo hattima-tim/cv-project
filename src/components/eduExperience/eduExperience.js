@@ -9,6 +9,8 @@ class eduExp extends Component{
     this.state={
       expContainer:[],
       placesWhereEditIsOpen:[], //this will hold all the exp that are being edited
+      newExpIsBeingAdded:true,
+      displayStyleForAddNewBtn:''
     }
   }
 
@@ -30,6 +32,8 @@ class eduExp extends Component{
     }else{
       this.setState((prevState)=>({
         expContainer:[...prevState.expContainer,input],
+        newExpIsBeingAdded:false,
+        displayStyleForAddNewBtn:'block' //to ensure there is a add new btn under a new exp section
       }))
     }
   }
@@ -42,18 +46,37 @@ class eduExp extends Component{
     }))
   }
 
+  handleAddNewButtonClick=(event)=>{
+    event.target.style.display='none';
+    this.setState({
+      newExpIsBeingAdded:true,
+      displayStyleForAddNewBtn:'none', //to remove the btn when it is clicked once
+    });
+  }
+
   render(){
     return(
         <div className='eduExp_container'>
             <h2>Educational Experience</h2>
-            {this.state.expContainer.toString()==='' && this.state.placesWhereEditIsOpen.toString()==='' &&
+            {this.state.expContainer.toString &&
+            <div>
+              <ExperienceFactory 
+                input={this.handleInput} 
+                placesWhereEditIsOpen={this.state.placesWhereEditIsOpen} 
+                expContainer={this.state.expContainer} 
+                handleEdit={this.handleEdit}
+                handleAddNewButtonClick={this.handleAddNewButtonClick} 
+              />
+              <button style={{display:`${this.state.displayStyleForAddNewBtn}`}} onClick={this.handleAddNewButtonClick}>Add New</button>
+            {/* add new btn is here and not in the ExperienceFactory ,to ensure
+            there is a add new btn under all the exp sections */}
+            </div>
+            }
+            {this.state.newExpIsBeingAdded===true && this.state.placesWhereEditIsOpen.toString()==='' &&
                   //[].toString()=''(an empty string)
                   <Form input={this.handleInput} previousValues={this.state.expContainer}/>
                   //the previousValues prop in upper line is only there to prevent error in
                   //the Form component that previousValues is undefined.
-            }
-            {this.state.expContainer.toString &&
-              <ExperienceFactory input={this.handleInput} placesWhereEditIsOpen={this.state.placesWhereEditIsOpen} expContainer={this.state.expContainer} handleEdit={this.handleEdit}/>
             }
         </div>
     )
