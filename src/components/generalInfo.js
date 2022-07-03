@@ -37,11 +37,11 @@ class GeneralInfo extends Component{
             }
             {this.state.info!=='' && this.state.editOn===false &&
               <div>
-                <p>First Name:{this.state.info.firstName}</p>
-                <p>Last Name:{this.state.info.lastName}</p>
-                <p>Email:{this.state.info.email}</p>
-                <p>Phone:{this.state.info.phone}</p>
-                <EditBtn onClick={this.handleEdit}/>
+                <p>First Name: {this.state.info.firstName}</p>
+                <p>Last Name: {this.state.info.lastName}</p>
+                <p>Email: {this.state.info.email}</p>
+                <p>Phone: {this.state.info.phone}</p>
+                <EditBtn className='editBtn' onClick={this.handleEdit}/>
               </div>
             }
         </div>

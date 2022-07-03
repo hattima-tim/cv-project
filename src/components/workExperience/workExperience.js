@@ -90,7 +90,7 @@ class workExp extends Component{
                 handleAddNewButtonClick={this.handleAddNewButtonClick} 
                 handleDelete={this.handleDelete}
               />
-              <button style={{display:`${this.state.displayStyleForAddNewBtn}`}} onClick={this.handleAddNewButtonClick}>Add New</button>
+              <button className='addNewBtn' style={{display:`${this.state.displayStyleForAddNewBtn}`}} onClick={this.handleAddNewButtonClick}>Add New</button>
             {/* AddNew btn is here and not in the ExperienceFactory ,to ensure
             there is a add new btn under all the exp sections */}
             </div>

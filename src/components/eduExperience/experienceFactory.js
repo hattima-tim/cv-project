@@ -23,11 +23,11 @@ class ExperienceFactory extends Component{
             }
             return(
                 <div key={id}>
-                <p>School Name:{exp.schoolName}</p>
-                <p>Title of study:{exp.titleOfStudy}</p>
-                <p>From:{exp.from}</p>
-                <p>To:{exp.to}</p>
-                <button id={index} onClick={handleEdit}>Edit</button>
+                <p>School Name: {exp.schoolName}</p>
+                <p>Title of study: {exp.titleOfStudy}</p>
+                <p>From: {exp.from}</p>
+                <p>To: {exp.to}</p>
+                <button id={index} className='editBtn' onClick={handleEdit}>Edit</button>
                 </div>
             )
         });

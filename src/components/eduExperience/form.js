@@ -34,9 +34,10 @@ class Form extends Component{
                         <input type='date' name='to' id='to' defaultValue={this.props.previousValues.to ||''} required></input>
                     </div>
                 </form>
-                <button onClick={this.handleSubmit}>Save</button>
+                <button className='saveBtn' onClick={this.handleSubmit}>Save</button>
                 <button 
-                    id={this.props.editedExpNum} 
+                    id={this.props.editedExpNum}
+                    className='delete'
                     onClick={this.props.handleDelete}>Delete</button>
             </div>
         )

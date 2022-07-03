@@ -36,7 +36,7 @@ class Form extends Component{
                         <input type='tel' name='phone' id='phone' placeholder='123-456-7890' defaultValue={this.props.previousValues.phone ||''} required></input>
                     </div>
                 </form>
-                <button onClick={this.handleSubmit}>Save</button>
+                <button className='saveBtn' onClick={this.handleSubmit}>Save</button>
             </div>
         )
     }
