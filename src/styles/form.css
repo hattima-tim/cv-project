@@ -1,18 +1,33 @@
 form{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    width: 550px;
+    display: grid;
+    grid-template-columns: repeat(2,auto);
     height: 110px;
+    grid-gap: 10px;
+    grid-column-gap: 40px;
 }
 
-button{
+.saveBtn,
+.editBtn,
+.delete,
+.addNewBtn{
     display: block;
-    margin: 10px auto;
     height: 35px;
     width: 100px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.form_item {
-    margin: auto;
+.saveBtn,
+.editBtn{
+    margin-top: 30px;
+}
+
+.delete,
+.addNewBtn{
+    margin-top: 10px;
+}
+
+input{
+    width: 30em;
+    height: 35px;
 }
