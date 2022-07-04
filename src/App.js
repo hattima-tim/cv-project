@@ -7,6 +7,11 @@ import PrintComponent from './components/print/printingComponent';
 class App extends Component{
   constructor(props){
     super(props);
+    this.state = {
+      generalInfo: '',
+      eduExperiences: [],
+      workExperiences:[],
+    }
   }
 
   sendDataToApp = (data,from) => {
@@ -22,7 +27,11 @@ class App extends Component{
         <GeneralInfo sendDataToApp={this.sendDataToApp} />
         <EduExperience sendDataToApp={this.sendDataToApp} />
         <WorkExperience sendDataToApp={this.sendDataToApp} />
-        <PrintComponent/>
+        <PrintComponent
+          generalInfo={this.state.generalInfo}
+          eduExperiences={this.state.eduExperiences}
+          workExperiences={this.state.workExperiences}
+        />
       </div>
     )
   }
