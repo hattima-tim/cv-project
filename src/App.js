@@ -2,6 +2,7 @@ import {Component} from 'react';
 import GeneralInfo from './components/generalInfo'
 import EduExperience from './components/eduExperience/eduExperience'
 import WorkExperience from './components/workExperience/workExperience'
+import PrintComponent from './components/print/printingComponent';
 
 class App extends Component{
   constructor(props){
@@ -14,6 +15,7 @@ class App extends Component{
         <GeneralInfo />
         <EduExperience />
         <WorkExperience />
+        <PrintComponent/>
       </div>
     )
   }
