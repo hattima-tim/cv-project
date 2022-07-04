@@ -14,27 +14,37 @@ class workExp extends Component{
     }
   }
 
-  handleInput=(input,editedExpNumberForEditedSubmit)=>{
+  handleInput = (input, editedExpNumberForEditedSubmit) => {
     if(editedExpNumberForEditedSubmit!==undefined){
-      this.setState((prevState)=>({
-        expContainer:prevState.expContainer.map((exp,index)=>{
-          if(index===editedExpNumberForEditedSubmit){
+      this.setState((prevState) => ({
+        expContainer: prevState.expContainer.map((exp, index) => {
+          if (index === editedExpNumberForEditedSubmit) {
             //editedExpNumber is calculated based on it's index in expContainer
             return input; //means this input is updated/edited,so replace it with old one
-          }else{
-            return exp; 
+          } else {
+            return exp;
           }
         }),
-        placesWhereEditIsOpen:prevState.placesWhereEditIsOpen.filter((expWhereEditisOpen)=>{
-          return expWhereEditisOpen[1]!==editedExpNumberForEditedSubmit;
+        placesWhereEditIsOpen: prevState.placesWhereEditIsOpen.filter((expWhereEditisOpen) => {
+          return expWhereEditisOpen[1] !== editedExpNumberForEditedSubmit;
         }),
-      }))
+      }));
+
+      setTimeout(() => {
+        this.props.sendDataToApp(this.state.expContainer, 'workExperiences')
+      }, 0);
+
     }else{
-      this.setState((prevState)=>({
-        expContainer:[...prevState.expContainer,input],
-        newExpIsBeingAdded:false,
-        displayStyleForAddNewBtn:'block' //to ensure there is a add new btn under a new exp section
-      }))
+      this.setState((prevState) => ({
+        expContainer: [...prevState.expContainer, input],
+        newExpIsBeingAdded: false,
+        displayStyleForAddNewBtn: 'block' //to ensure there is a add new btn under a new exp section
+      }));
+
+      setTimeout(() => {
+        this.props.sendDataToApp(this.state.expContainer, 'workExperiences')
+      }, 0);
+      
     }
   }
 

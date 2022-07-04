@@ -14,9 +14,10 @@ class GeneralInfo extends Component{
 
   getInput=(input)=>{
     this.setState({
-      info:input,
-      editOn:false
-    })
+      info: input,
+      editOn: false
+    });
+    this.props.sendDataToApp(input,'generalInfo')
   }
 
   handleEdit=()=>{

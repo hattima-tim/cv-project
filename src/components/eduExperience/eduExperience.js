@@ -28,13 +28,23 @@ class eduExp extends Component{
         placesWhereEditIsOpen:prevState.placesWhereEditIsOpen.filter((expWhereEditisOpen)=>{
           return expWhereEditisOpen[1]!==editedExpNumberForEditedSubmit;
         }),
-      }))
+      }));
+      
+      setTimeout(() => {
+        this.props.sendDataToApp(this.state.expContainer, 'eduExperiences')
+      }, 0);
+
     }else{
-      this.setState((prevState)=>({
-        expContainer:[...prevState.expContainer,input],
-        newExpIsBeingAdded:false,
-        displayStyleForAddNewBtn:'block' //to ensure there is a add new btn under a new exp section
-      }))
+      this.setState((prevState) => ({
+        expContainer: [...prevState.expContainer, input],
+        newExpIsBeingAdded: false,
+        displayStyleForAddNewBtn: 'block' //to ensure there is a add new btn under a new exp section
+      }));
+      
+      setTimeout(() => {
+        this.props.sendDataToApp(this.state.expContainer, 'eduExperiences')
+      }, 0);
+      
     }
   }
 
