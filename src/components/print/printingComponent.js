@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import ReactToPrint from "react-to-print";
 import ComponentToPrint from './componentToPrint'
 
-export default function PrintComponent() {
+export default function PrintComponent(props) {
   let componentRef = useRef();
 
   return (
@@ -14,7 +14,11 @@ export default function PrintComponent() {
         />
 
         {/* component to be printed */}
-        <ComponentToPrint ref={(el) => (componentRef = el)} />
+      <ComponentToPrint
+        generalInfo={props.generalInfo}
+        eduExperiences={props.eduExperiences}
+        workExperiences={props.workExperiences}
+        ref={(el) => (componentRef = el)} />
       </div>
   );
 }
