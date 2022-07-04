@@ -8,6 +8,13 @@ class App extends Component{
   constructor(props){
     super(props);
   }
+
+  sendDataToApp = (data,from) => {
+    this.setState({
+      [from]:data,
+    })
+  }
+
   render(){
     return(
       <div>
