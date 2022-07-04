@@ -19,9 +19,9 @@ class App extends Component{
     return(
       <div>
         <h1>Cv Project</h1>
-        <GeneralInfo />
-        <EduExperience />
-        <WorkExperience />
+        <GeneralInfo sendDataToApp={this.sendDataToApp} />
+        <EduExperience sendDataToApp={this.sendDataToApp} />
+        <WorkExperience sendDataToApp={this.sendDataToApp} />
         <PrintComponent/>
       </div>
     )
