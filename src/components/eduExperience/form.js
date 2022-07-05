@@ -8,9 +8,10 @@ class Form extends Component{
         const schoolName=e.target.previousSibling[0].value;
         const titleOfStudy=e.target.previousSibling[1].value;
         const from=e.target.previousSibling[2].value;
-        const to=e.target.previousSibling[3].value;
+        const to = e.target.previousSibling[3].value;
+        const details = e.target.previousSibling[4].value;
         const editedExpNumberForEditedSubmit=this.props.editedExpNum;
-        this.props.input({schoolName,titleOfStudy,from,to},editedExpNumberForEditedSubmit)
+        this.props.input({schoolName,titleOfStudy,from,to,details},editedExpNumberForEditedSubmit)
     }
 
     render(){
@@ -32,6 +33,10 @@ class Form extends Component{
                     <div className='form_item'>
                         <label htmlFor='to'>To:</label><br/>
                         <input type='date' name='to' id='to' defaultValue={this.props.previousValues.to ||''} required></input>
+                    </div>
+                    <div className='form_item'>
+                        <label htmlFor='details'>Details:</label><br/>
+                        <textarea id='details' name='details' rows='4' cols='53' placeholder='Details' defaultValue={this.props.previousValues.details || ''}></textarea>
                     </div>
                 </form>
                 <button className='saveBtn' onClick={this.handleSubmit}>Save</button>
