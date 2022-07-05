@@ -12,7 +12,8 @@ class Form extends Component{
         const lastName=e.target.previousSibling[1].value;
         const email=e.target.previousSibling[2].value;
         const phone=e.target.previousSibling[3].value;
-        this.props.input({firstName,lastName,email,phone})
+        const details = e.target.previousSibling[4].value;
+        this.props.input({firstName,lastName,email,phone,details})
     }
 
     render(){
@@ -34,6 +35,10 @@ class Form extends Component{
                     <div className='form_item'>
                         <label htmlFor='phone'>Phone Number</label><br/>
                         <input type='tel' name='phone' id='phone' placeholder='123-456-7890' defaultValue={this.props.previousValues.phone ||''} required></input>
+                    </div>
+                    <div className='form_item'>
+                        <label htmlFor='details'>Details:</label><br/>
+                        <textarea id='details' name='details' rows='4' cols='53' placeholder='Details' defaultValue={this.props.previousValues.details || ''}></textarea>
                     </div>
                 </form>
                 <button className='saveBtn' onClick={this.handleSubmit}>Save</button>
