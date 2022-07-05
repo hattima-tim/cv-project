@@ -14,11 +14,13 @@ export default function PrintComponent(props) {
         />
 
         {/* component to be printed */}
-      <ComponentToPrint
-        generalInfo={props.generalInfo}
-        eduExperiences={props.eduExperiences}
-        workExperiences={props.workExperiences}
-        ref={(el) => (componentRef = el)} />
+      <div style={{display:'none'}}>
+        <ComponentToPrint
+          generalInfo={props.generalInfo}
+          eduExperiences={props.eduExperiences}
+          workExperiences={props.workExperiences}
+          ref={(el) => (componentRef = el)} />
+        </div>
       </div>
   );
 }
