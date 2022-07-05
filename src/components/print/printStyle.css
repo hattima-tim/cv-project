@@ -1,6 +1,38 @@
+.cvContainer{
+  padding: 80px;
+}
 
-thead th {
-    padding-right: 50px;
-  }
-  
-  
+.header{
+  display: flex;
+  justify-content: space-evenly;
+  border-bottom: 2px solid black;
+  padding-bottom: 10px;
+}
+
+.name{
+  color:#195c70;
+  margin: 0px;
+  padding: 0px;
+}
+
+.contact{
+  display: flex;
+  flex-direction: column;
+}
+
+.printItem{
+  margin:5px;
+}
+
+.eduHeader,
+.workHeader{
+  color:#4587aa;
+  font-size: medium;
+}
+
+.eduInfo,
+.workExperiences{
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 0;
+}
