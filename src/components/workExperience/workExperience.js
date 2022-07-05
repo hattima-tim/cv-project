@@ -91,7 +91,7 @@ class workExp extends Component{
             //newExpIsBeingAdded===false is added in upper line to show Add New
             //button when the first exp form is deleted and thus newExpIsBeingAdded
             //becomes false
-            <div>
+            <div className='expList'>
               <ExperienceFactory 
                 input={this.handleInput} 
                 placesWhereEditIsOpen={this.state.placesWhereEditIsOpen} 
