@@ -14,16 +14,19 @@ class ComponentToPrint extends Component {
                 <p className='printItem'>Phone: {generalInfo.phone}</p>
               </div>
             </div>
-          
+            <p className='personalDetails'>{generalInfo.details}</p>
             <div className='education_container'>
               <h2 className='eduHeader'>Education</h2>
               {
                 eduExperiences.map((exp) => {
                   const uniqKey=uniqid()
                   return (
-                    <div key={uniqKey} className='eduInfo'>
-                      <p className='printItem'>{exp.titleOfStudy}</p>
-                      <p className='printItem'>{ `${exp.schoolName} | ${exp.from}-${exp.to}` }</p>
+                    <div key={uniqKey}>
+                      <div className='eduInfo'>
+                        <p className='printItem'>{exp.titleOfStudy}</p>
+                        <p className='printItem'>{ `${exp.schoolName} | ${exp.from}-${exp.to}` }</p>
+                      </div>
+                      <p className='eduDetails'>{exp.details}</p>
                     </div>
                     )
                   })
@@ -36,9 +39,13 @@ class ComponentToPrint extends Component {
                 workExperiences.map((exp) => {
                   const uniqKey=uniqid()
                   return (
-                    <div key={uniqKey} className='workExperiences'>
-                      <p className='printItem'>{exp.positionTitle}</p>
-                      <p className='printItem'>{ `${exp.companyName} | ${exp.from}-${exp.to}` }</p>
+                    <div key={uniqKey}>
+                      <div className='workExperiences'>
+                        <p className='printItem'>{exp.positionTitle}</p>
+                        <p className='printItem'>{ `${exp.companyName} | ${exp.from}-${exp.to}` }</p>
+                      </div>
+                      
+                      <p>{exp.details}</p>
                     </div>
                     )
                   })
