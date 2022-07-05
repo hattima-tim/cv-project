@@ -6,24 +6,24 @@ class ComponentToPrint extends Component {
   render() {
     const { generalInfo, eduExperiences, workExperiences } = this.props;
       return (
-        <div>
+        <div className='cvContainer'>
             <div className='header'>
-              <h1>{`${generalInfo.firstName} ${generalInfo.lastName}`}</h1>
+              <h1 className='name'>{`${generalInfo.firstName} ${generalInfo.lastName}`}</h1>
               <div className='contact'>
-                <p>Email: {generalInfo.email}</p>
-                <p>Phone: {generalInfo.phone}</p>
+                <p className='printItem'>Email: {generalInfo.email}</p>
+                <p className='printItem'>Phone: {generalInfo.phone}</p>
               </div>
             </div>
           
             <div className='education_container'>
-              <h1>Education</h1>
+              <h2 className='eduHeader'>Education</h2>
               {
                 eduExperiences.map((exp) => {
                   const uniqKey=uniqid()
                   return (
                     <div key={uniqKey} className='eduInfo'>
-                      <p>{exp.titleOfStudy}</p>
-                      <p>{ `${exp.schoolName} | ${exp.from}-${exp.to}` }</p>
+                      <p className='printItem'>{exp.titleOfStudy}</p>
+                      <p className='printItem'>{ `${exp.schoolName} | ${exp.from}-${exp.to}` }</p>
                     </div>
                     )
                   })
@@ -31,14 +31,14 @@ class ComponentToPrint extends Component {
             </div>
             
             <div className='work_container'>
-              <h1>Work Experience</h1>
+              <h2 className='workHeader'>Work Experience</h2>
               {
                 workExperiences.map((exp) => {
                   const uniqKey=uniqid()
                   return (
                     <div key={uniqKey} className='workExperiences'>
-                      <p>{exp.positionTitle}</p>
-                      <p>{ `${exp.companyName} | ${exp.from}-${exp.to}` }</p>
+                      <p className='printItem'>{exp.positionTitle}</p>
+                      <p className='printItem'>{ `${exp.companyName} | ${exp.from}-${exp.to}` }</p>
                     </div>
                     )
                   })
