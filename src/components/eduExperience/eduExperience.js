@@ -91,21 +91,16 @@ class eduExp extends Component{
             //newExpIsBeingAdded===false is added in upper line to show Add New
             //button when the first exp form is deleted and thus newExpIsBeingAdded
             //becomes false
-            <div>
+            <div className='expList'>
               <ExperienceFactory 
                 input={this.handleInput} 
                 placesWhereEditIsOpen={this.state.placesWhereEditIsOpen} 
                 expContainer={this.state.expContainer} 
                 handleEdit={this.handleEdit}
-                handleAddNewButtonClick={this.handleAddNewButtonClick} 
                 handleDelete={this.handleDelete}
-                displayStyleForAddNewBtn={this.state.displayStyleForAddNewBtn}
               />
-              {
-                this.state.expContainer.toString()==='' && 
-                    <button className='addNewBtn' style={{display:`${this.state.displayStyleForAddNewBtn}`}} onClick={this.handleAddNewButtonClick}>Add New</button>
-              }
-            {/* AddNew btn is here to ensure
+              <button className='addNewBtn' style={{display:`${this.state.displayStyleForAddNewBtn}`}} onClick={this.handleAddNewButtonClick}>Add New</button>
+            {/* AddNew btn is here and not in the experienceFactory to ensure
             there is a add new btn under all the exp sections */}
             </div>
             }

@@ -29,11 +29,10 @@ class ExperienceFactory extends Component{
                 <p>To: {exp.to}</p>
                 <p>Details: { exp.details}</p>
                 <button id={index} className='editBtn' onClick={handleEdit}>Edit</button>
-                <button className='addNewBtn' style={{display:`${this.props.displayStyleForAddNewBtn}`}} onClick={this.props.handleAddNewButtonClick}>Add New</button>
                 </div>
             )
         });
-        return <ul>{expList}</ul>
+        return <div>{expList}</div>
     }
 }
 
