@@ -37,7 +37,7 @@ class GeneralInfo extends Component{
                   <Form input={this.getInput} previousValues={this.state.info}/>
             }
             {this.state.info!=='' && this.state.editOn===false &&
-              <div>
+              <div className='generalInfo'>
                 <p>First Name: {this.state.info.firstName}</p>
                 <p>Last Name: {this.state.info.lastName}</p>
                 <p>Email: {this.state.info.email}</p>
