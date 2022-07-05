@@ -27,6 +27,7 @@ class ExperienceFactory extends Component{
                 <p>Position Title: {exp.positionTitle}</p>
                 <p>From: {exp.from}</p>
                 <p>To:{exp.to}</p>
+                <p>Details: { exp.details}</p>
                 <button id={index} className='editBtn' onClick={handleEdit}>Edit</button>
                 </div>
             )

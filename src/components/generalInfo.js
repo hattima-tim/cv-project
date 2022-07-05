@@ -42,6 +42,7 @@ class GeneralInfo extends Component{
                 <p>Last Name: {this.state.info.lastName}</p>
                 <p>Email: {this.state.info.email}</p>
                 <p>Phone: {this.state.info.phone}</p>
+                <p>Details: {this.state.info.details}</p>
                 <EditBtn className='editBtn' onClick={this.handleEdit}/>
               </div>
             }
