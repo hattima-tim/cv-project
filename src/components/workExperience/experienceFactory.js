@@ -32,7 +32,7 @@ class ExperienceFactory extends Component{
                 </div>
             )
         });
-        return <div>{expList}</div>
+        return <ul>{expList}</ul>
     }
 }
 
