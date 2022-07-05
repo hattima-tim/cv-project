@@ -3,12 +3,22 @@ import '../../styles/form.css'
 
 class Form extends Component{
 
+    getTodayDate=()=>{
+        let todayDate = new Date()
+        const offset = todayDate.getTimezoneOffset()
+        todayDate = new Date(todayDate.getTime() - (offset*60*1000))
+        return todayDate.toISOString().split('T')[0]
+    }
+
     handleSubmit=(e)=>{
         e.preventDefault();
         const schoolName=e.target.previousSibling[0].value;
         const titleOfStudy=e.target.previousSibling[1].value;
         const from=e.target.previousSibling[2].value;
-        const to = e.target.previousSibling[3].value;
+        let to = e.target.previousSibling[3].value;
+        if(this.getTodayDate()===to){
+            to='Present';
+        }
         const details = e.target.previousSibling[4].value;
         const editedExpNumberForEditedSubmit=this.props.editedExpNum;
         this.props.input({schoolName,titleOfStudy,from,to,details},editedExpNumberForEditedSubmit)
