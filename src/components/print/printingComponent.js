@@ -9,7 +9,7 @@ export default function PrintComponent(props) {
       <div>
         {/* button to trigger printing of target component */}
         <ReactToPrint
-          trigger={() => <button>Print this out!</button>}
+          trigger={() => <button className="printBtn">Save As Pdf</button>}
           content={() => componentRef}
         />
 
