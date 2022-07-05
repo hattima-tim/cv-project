@@ -99,9 +99,13 @@ class eduExp extends Component{
                 handleEdit={this.handleEdit}
                 handleAddNewButtonClick={this.handleAddNewButtonClick} 
                 handleDelete={this.handleDelete}
+                displayStyleForAddNewBtn={this.state.displayStyleForAddNewBtn}
               />
-              <button className='addNewBtn' style={{display:`${this.state.displayStyleForAddNewBtn}`}} onClick={this.handleAddNewButtonClick}>Add New</button>
-            {/* AddNew btn is here and not in the ExperienceFactory ,to ensure
+              {
+                this.state.expContainer.toString()==='' && 
+                    <button className='addNewBtn' style={{display:`${this.state.displayStyleForAddNewBtn}`}} onClick={this.handleAddNewButtonClick}>Add New</button>
+              }
+            {/* AddNew btn is here to ensure
             there is a add new btn under all the exp sections */}
             </div>
             }
