@@ -1,6 +1,5 @@
 import {Component} from 'react';
 import Form from './form';
-import EditBtn from './editBtn';
 import "../styles/generalInfo.css"
 
 class GeneralInfo extends Component{
@@ -43,7 +42,7 @@ class GeneralInfo extends Component{
                 <p>Email: {this.state.info.email}</p>
                 <p>Phone: {this.state.info.phone}</p>
                 <p>Details: {this.state.info.details}</p>
-                <EditBtn className='editBtn' onClick={this.handleEdit}/>
+                <button className='editBtn' onClick={this.handleEdit}>Edit</button>
               </div>
             }
         </div>
