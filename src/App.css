@@ -1,0 +1,16 @@
+body{
+    margin: 0px;
+    background-color: #303030;
+    color: whitesmoke;
+}
+
+.projectName{
+    display: flex;
+    align-items: center;
+    margin: 0px;
+    padding: 10px;
+    height: 70px;
+    font-weight: 400;
+    background-color: rgb(63, 81, 181);
+    color: whitesmoke;
+}
