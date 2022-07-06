@@ -7,6 +7,19 @@ form{
     grid-column-gap: 40px;
 }
 
+input{
+    width: 30em;
+    height: 35px;
+}
+
+input,
+textarea{
+    background: #303030;
+    color: #c7c7c7;
+    border-color: #303030;
+    border-bottom-color: rgb(48, 48, 48);
+    border-bottom: 1px solid #c7c7c7;
+}
 .saveBtn,
 .editBtn,
 .delete,
@@ -16,14 +29,19 @@ form{
     width: 100px;
     margin-left: auto;
     margin-right: auto;
+    color: white;
+    border: none;
+    border-radius: 4px;
 }
 
 .saveBtn{
     margin-top: 30px;
+    background: #3f51b5;
 }
 
 .editBtn{
     margin-top: 10px;
+    background: #3f51b5;
 }
 
 .delete,
@@ -31,7 +49,10 @@ form{
     margin-top: 10px;
 }
 
-input{
-    width: 30em;
-    height: 35px;
+.delete {
+    background: crimson;
+}
+
+.addNewBtn{
+    background: #09814a;
 }
