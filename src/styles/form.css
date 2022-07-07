@@ -7,19 +7,6 @@ form{
     grid-column-gap: 40px;
 }
 
-input{
-    width: 30em;
-    height: 35px;
-}
-
-input,
-textarea{
-    background: #303030;
-    color: #c7c7c7;
-    border-color: #303030;
-    border-bottom-color: rgb(48, 48, 48);
-    border-bottom: 1px solid #c7c7c7;
-}
 .saveBtn,
 .editBtn,
 .delete,
@@ -55,4 +42,15 @@ textarea{
 
 .addNewBtn{
     background: #09814a;
+}
+
+@media screen and (max-width: 600px){
+    form{
+        grid-template-columns: repeat(1,auto);
+        height: auto;
+        grid-gap: 0px;
+    }
+    .saveBtn{
+        margin-top: 10px;
+    }
 }
