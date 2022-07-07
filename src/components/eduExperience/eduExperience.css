@@ -5,6 +5,21 @@
     flex-direction: column;
 }
 
-.expList{
+.eduInfo{
     width: 880px;
+}
+
+@media screen and (max-width: 600px){
+    .eduInfo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    p{
+        margin: 12px;
+    }
+    .eduInfo{
+        width: auto;
+    }
 }
