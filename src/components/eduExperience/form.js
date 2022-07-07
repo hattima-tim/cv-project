@@ -1,5 +1,7 @@
 import {Component} from 'react';
 import '../../styles/form.css'
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 
 class Form extends Component{
 
@@ -13,42 +15,34 @@ class Form extends Component{
     handleSubmit=(e)=>{
         e.preventDefault();
         const schoolName=e.target.previousSibling[0].value;
-        const titleOfStudy=e.target.previousSibling[1].value;
-        const from=e.target.previousSibling[2].value;
-        let to = e.target.previousSibling[3].value;
+        const titleOfStudy=e.target.previousSibling[2].value;
+        const from=e.target.previousSibling[4].value;
+        let to = e.target.previousSibling[6].value;
         if(this.getTodayDate()===to){
             to='Present';
         }
-        const details = e.target.previousSibling[4].value;
+        const details = e.target.previousSibling[8].value;
         const editedExpNumberForEditedSubmit=this.props.editedExpNum;
         this.props.input({schoolName,titleOfStudy,from,to,details},editedExpNumberForEditedSubmit)
     }
 
     render(){
         return(
-            <div>
-                <form>   
-                    <div className='form_item'>
-                        <label htmlFor='schoolName'>School Name:</label><br/>
-                        <input type='text' name='schoolName' id='schoolName' placeholder='School Name' defaultValue={this.props.previousValues.schoolName ||''} required></input>    
-                    </div>
-                    <div className='form_item'>
-                        <label htmlFor='titleOfStudy'>Title of Study:</label><br/>
-                        <input type='text' name='titleOfStudy' id='titleOfStudy' placeholder='Title of Study' defaultValue={this.props.previousValues.titleOfStudy ||''} required></input>
-                    </div>
-                    <div className='form_item'>
-                        <label htmlFor='from'>From:</label><br/>
-                        <input type='date' name='from' id='from' defaultValue={this.props.previousValues.from ||''} required></input>
-                    </div>
-                    <div className='form_item'>
-                        <label htmlFor='to'>To:</label><br/>
-                        <input type='date' name='to' id='to' defaultValue={this.props.previousValues.to ||''} required></input>
-                    </div>
-                    <div className='form_item'>
-                        <label htmlFor='details'>Details:</label><br/>
-                        <textarea id='details' name='details' rows='4' cols='53' placeholder='Details' defaultValue={this.props.previousValues.details || ''}></textarea>
-                    </div>
-                </form>
+            <div>   
+                <Box
+                    component="form"
+                    sx={{
+                        '& > :not(style)': {m:1,width:'30ch'},
+                    }}
+                    noValidate
+                    autoComplete="off"
+                >
+                    <TextField type='text' id="schoolName" label='School Name'  defaultValue={this.props.previousValues.schoolName ||''} variant="outlined" required/>
+                    <TextField type='text' id="titleOfStudy" label='Title Of Study' defaultValue={this.props.previousValues.titleOfStudy ||''} variant="outlined" required/>
+                    <TextField type='date' id="from" label='From' InputLabelProps={{ shrink: true }} defaultValue={this.props.previousValues.from ||''} variant="outlined" required/>
+                    <TextField type='date' id="to" label='To' InputLabelProps={{ shrink: true }} defaultValue={this.props.previousValues.to ||''} variant="outlined" required/>
+                    <TextField id="Details" multiline rows={1} label='Details'  defaultValue={this.props.previousValues.details ||''} variant="outlined" required/>
+                </Box>
                 <button className='saveBtn' onClick={this.handleSubmit}>Save</button>
                 <button 
                     id={this.props.editedExpNum}
