@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# Cv Creator
+A simple cv creator app that can be used to create cv and save that cv as pdf.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Built as an assignment for the react section of [The Odin Project](https://github.com/TheOdinProject).
 
-## Available Scripts
+Details for the assignment can be found [here](https://www.theodinproject.com/lessons/node-path-javascript-cv-application).
 
-In the project directory, you can run:
+Use it [here](https://hattima-tim.github.io/cv-project/).
 
-### `npm start`
+## Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Picture of a cv that was created by the app:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![](https://res.cloudinary.com/du3oueesv/image/upload/v1657289612/Screenshot_2022_0708_200921_cuab78.png)
 
-### `npm test`
+## Built With
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- React
+- Material ui
+- react-to-print
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Save the cv that was created as a pdf.
+2. Add personal details (`name, email, phone`) to the cv.
+3. Add educational information (`school name, the title of study, from, to`) to the cv.
+4. Add multiple educational information.
+5. Add work experience (`company name , job title, from, to`) to the cv.
+6. Add multiple work experience.
+7. Delete and edit information.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Possible future change
+1. A rewrite of the project using functional components. This project is mostly written using class components to become familiar with it.
+2. Addition of `toggle color mode` button for using dark mode.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Known bugs
 
-### `npm run eject`
+1. If you don't give your first name and last name then the cv that will be created will show your name as `undefined undefined` .
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. This bug is a complex one to explain. So, normally if you want to edit a piece of information you will press the edit button and a form will appear that is related to the information. But if you give same information to multiple forms of the same section (work/education), save those forms, and try to edit one of the forms, all the forms that was previously submitted will appear in front of you instead of the form that you want to edit.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Reflections
+A perfect first project for react. At first, I thought it will be an easy one but it didn't take long for it to become hard. Enjoyed the project a lot though. Had a lot of practice with state and props. Feeling a lot more confident with react after the project.
