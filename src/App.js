@@ -24,7 +24,7 @@ class App extends Component{
   render(){
     return(
       <div>
-        <h1 className='projectName'>Cv Project</h1>
+        <h1 className='projectName'>Cv-Application</h1>
         <GeneralInfo sendDataToApp={this.sendDataToApp} />
         <EduExperience sendDataToApp={this.sendDataToApp} />
         <WorkExperience sendDataToApp={this.sendDataToApp} />
