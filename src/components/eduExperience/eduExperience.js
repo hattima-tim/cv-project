@@ -1,7 +1,7 @@
 import {Component} from 'react';
-import Form from './form';
+import Form from '../edu_work_form';
 import './eduExperience.css'
-import ExperienceFactory from './experienceFactory';
+import ExperienceFactory from '../experienceFactory';
 
 class eduExp extends Component{
   constructor(props){
@@ -98,6 +98,7 @@ class eduExp extends Component{
                 expContainer={this.state.expContainer} 
                 handleEdit={this.handleEdit}
                 handleDelete={this.handleDelete}
+                componentIsCalledFrom='eduExp'
               />
               <button className='addNewBtn' style={{display:`${this.state.displayStyleForAddNewBtn}`}} onClick={this.handleAddNewButtonClick}>Add New</button>
             {/* AddNew btn is here and not in the experienceFactory to ensure
@@ -109,7 +110,9 @@ class eduExp extends Component{
                   <Form 
                     input={this.handleInput} 
                     previousValues={this.state.expContainer}
-                    handleDelete={this.handleDelete}/>
+                    handleDelete={this.handleDelete}
+                    componentIsCalledFrom='eduExp'
+                    />
                   //the previousValues prop in upper line is only there to prevent error in
                   //the Form component which is previousValues is undefined.
             }
