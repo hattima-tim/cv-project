@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import uniqid from "uniqid";
-import Form from "./form";
+import Form from "./edu_work_form";
 
 function ExperienceFactory({
   expContainer,

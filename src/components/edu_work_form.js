@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../../styles/form.css";
+import "../styles/form.css";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 
@@ -83,7 +83,7 @@ function Form({
               type="text"
               id="companyName"
               label="Company Name"
-              value={previousValues.companyName || companyName}
+              value={companyName}
               onChange={handleCompanyChange}
               variant="outlined"
               required
@@ -92,7 +92,7 @@ function Form({
               type="text"
               id="positionTitle"
               label="Position Title"
-              value={previousValues.positionTitle || positionTitle}
+              value={positionTitle}
               onChange={handlePositionChange}
               variant="outlined"
               required
@@ -105,7 +105,7 @@ function Form({
               type="text"
               id="schoolName"
               label="School Name"
-              value={previousValues.schoolName || schoolName}
+              value={schoolName}
               onChange={handleSchoolChange}
               variant="outlined"
               required
@@ -114,7 +114,7 @@ function Form({
               type="text"
               id="titleOfStudy"
               label="Title of Study"
-              value={previousValues.titleOfStudy || titleOfStudy}
+              value={titleOfStudy}
               onChange={handleTitleOfStudyChange}
               variant="outlined"
               required
@@ -126,7 +126,7 @@ function Form({
           id="from"
           label="From"
           InputLabelProps={{ shrink: true }}
-          value={previousValues.from || from}
+          value={from}
           onChange={handleStartDateChange}
           variant="outlined"
           required
@@ -136,7 +136,7 @@ function Form({
           id="to"
           label="To"
           InputLabelProps={{ shrink: true }}
-          value={previousValues.to || to}
+          value={to}
           onChange={handleEndDateChange}
           variant="outlined"
           required
@@ -146,7 +146,7 @@ function Form({
           multiline
           rows={1}
           label="Details"
-          value={previousValues.details || details}
+          value={details}
           onChange={handleDetailsChange}
           variant="outlined"
           required
