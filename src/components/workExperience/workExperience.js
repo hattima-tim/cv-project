@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Form from "./form";
+import Form from "../edu_work_form";
 import "./workExperience.css";
-import ExperienceFactory from "./experienceFactory";
+import ExperienceFactory from "../experienceFactory";
 
 function workExp({ sendDataToApp }) {
   const [expContainer, setExpContainer] = useState([]);
@@ -99,6 +99,7 @@ function workExp({ sendDataToApp }) {
             handleEdit={handleEdit}
             handleAddNewButtonClick={handleAddNewButtonClick}
             handleDelete={handleDelete}
+            componentIsCalledFrom="workExp"
           />
           <button
             className="addNewBtn"
@@ -118,6 +119,7 @@ function workExp({ sendDataToApp }) {
             input={handleInput}
             previousValues={expContainer}
             handleDelete={handleDelete}
+            componentIsCalledFrom="workExp"
           />
         )
         // the previousValues prop in upper line is only there to prevent error in
