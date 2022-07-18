@@ -1,56 +1,170 @@
-import {Component} from 'react';
-import '../../styles/form.css'
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
+import { useState } from "react";
+import "../../styles/form.css";
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
 
-class Form extends Component{
+function Form({
+  editedExpNum,
+  previousValues,
+  input,
+  handleDelete,
+  componentIsCalledFrom,
+}) {
+  const [schoolName, setSchoolName] = useState(previousValues.schoolName || "");
+  const handleSchoolChange = (e) => {
+    setSchoolName(e.target.value);
+  };
 
-    getTodayDate=()=>{
-        let todayDate = new Date()
-        const offset = todayDate.getTimezoneOffset()
-        todayDate = new Date(todayDate.getTime() - (offset*60*1000))
-        return todayDate.toISOString().split('T')[0]
+  const [titleOfStudy, setTitleOfStudy] = useState(
+    previousValues.titleOfStudy || ""
+  );
+  const handleTitleOfStudyChange = (e) => {
+    setTitleOfStudy(e.target.value);
+  };
+
+  const [companyName, setCompanyName] = useState(
+    previousValues.companyName || ""
+  );
+  const handleCompanyChange = (e) => {
+    setCompanyName(e.target.value);
+  };
+
+  const [positionTitle, setPositionTitle] = useState(
+    previousValues.positionTitle || ""
+  );
+  const handlePositionChange = (e) => {
+    setPositionTitle(e.target.value);
+  };
+
+  const [from, setFrom] = useState(previousValues.from || "");
+  const handleStartDateChange = (e) => {
+    setFrom(e.target.value);
+  };
+
+  const [to, setTo] = useState(previousValues.to || "");
+  const handleEndDateChange = (e) => {
+    setTo(e.target.value);
+  };
+
+  const [details, setDetails] = useState(previousValues.details || "");
+  const handleDetailsChange = (e) => {
+    setDetails(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const editedExpNumberForEditedSubmit = editedExpNum;
+    if (componentIsCalledFrom === "workExp") {
+      input(
+        { companyName, positionTitle, from, to, details },
+        editedExpNumberForEditedSubmit
+      );
+    } else if (componentIsCalledFrom === "eduExp") {
+      input(
+        { schoolName, titleOfStudy, from, to, details },
+        editedExpNumberForEditedSubmit
+      );
     }
+  };
 
-    handleSubmit=(e)=>{
-        e.preventDefault();
-        const companyName=e.target.previousSibling[0].value;
-        const positionTitle=e.target.previousSibling[2].value;
-        const from=e.target.previousSibling[4].value;
-        let to = e.target.previousSibling[6].value;
-        if(this.getTodayDate()===to){
-            to='Present';
-        }
-        const details = e.target.previousSibling[8].value;
-        const editedExpNumberForEditedSubmit=this.props.editedExpNum;
-        this.props.input({companyName,positionTitle,from,to,details},editedExpNumberForEditedSubmit)
-    }
-
-    render(){
-        return(
-            <div>
-                <Box
-                    component="form"
-                    sx={{
-                        '& > :not(style)': {m:1,width:'30ch'},
-                    }}
-                    noValidate
-                    autoComplete="off"
-                >
-                    <TextField type='text' id="companyName" label='Company Name'  defaultValue={this.props.previousValues.companyName ||''} variant="outlined" required/>
-                    <TextField type='text' id="positionTitle" label='Position Title'  defaultValue={this.props.previousValues.positionTitle ||''} variant="outlined" required/>
-                    <TextField type='date' id="from" label='From' InputLabelProps={{ shrink: true }} defaultValue={this.props.previousValues.from ||''} variant="outlined" required/>
-                    <TextField type='date' id="to" label='To' InputLabelProps={{ shrink: true }} defaultValue={this.props.previousValues.to ||''} variant="outlined" required/>
-                    <TextField id="Details" multiline rows={1} label='Details'  defaultValue={this.props.previousValues.details ||''} variant="outlined" required/>
-                </Box>
-                    <button className='saveBtn' onClick={this.handleSubmit}>Save</button>
-                    <button 
-                        id={this.props.editedExpNum}
-                        className='delete'
-                        onClick={this.props.handleDelete}>Delete</button>
-            </div>
-        )
-    }
+  return (
+    <div>
+      <Box
+        component="form"
+        sx={{
+          "& > :not(style)": { m: 1, width: "30ch" },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        {componentIsCalledFrom === "workExp" && (
+          <>
+            <TextField
+              type="text"
+              id="companyName"
+              label="Company Name"
+              value={previousValues.companyName || companyName}
+              onChange={handleCompanyChange}
+              variant="outlined"
+              required
+            />
+            <TextField
+              type="text"
+              id="positionTitle"
+              label="Position Title"
+              value={previousValues.positionTitle || positionTitle}
+              onChange={handlePositionChange}
+              variant="outlined"
+              required
+            />
+          </>
+        )}
+        {componentIsCalledFrom === "eduExp" && (
+          <>
+            <TextField
+              type="text"
+              id="schoolName"
+              label="School Name"
+              value={previousValues.schoolName || schoolName}
+              onChange={handleSchoolChange}
+              variant="outlined"
+              required
+            />
+            <TextField
+              type="text"
+              id="titleOfStudy"
+              label="Title of Study"
+              value={previousValues.titleOfStudy || titleOfStudy}
+              onChange={handleTitleOfStudyChange}
+              variant="outlined"
+              required
+            />
+          </>
+        )}
+        <TextField
+          type="date"
+          id="from"
+          label="From"
+          InputLabelProps={{ shrink: true }}
+          value={previousValues.from || from}
+          onChange={handleStartDateChange}
+          variant="outlined"
+          required
+        />
+        <TextField
+          type="date"
+          id="to"
+          label="To"
+          InputLabelProps={{ shrink: true }}
+          value={previousValues.to || to}
+          onChange={handleEndDateChange}
+          variant="outlined"
+          required
+        />
+        <TextField
+          id="Details"
+          multiline
+          rows={1}
+          label="Details"
+          value={previousValues.details || details}
+          onChange={handleDetailsChange}
+          variant="outlined"
+          required
+        />
+      </Box>
+      <button type="button" className="saveBtn" onClick={handleSubmit}>
+        Save
+      </button>
+      <button
+        type="button"
+        id={editedExpNum}
+        className="delete"
+        onClick={handleDelete}
+      >
+        Delete
+      </button>
+    </div>
+  );
 }
 
 export default Form;
