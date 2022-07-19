@@ -30,8 +30,9 @@ Picture of a cv that was created by the app:
 7. Delete and edit information.
 
 ## Possible future change
-1. A rewrite of the project using functional components. This project is mostly written using class components to become familiar with it.
-2. Addition of `toggle color mode` button for using dark mode.
+* [x] A rewrite of the project using functional components. This project is mostly written using class components to become familiar with it.
+
+* [ ] Addition of `toggle color mode` button for using dark mode.
 
 ## Known bugs
 
