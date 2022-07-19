@@ -1,53 +1,46 @@
-import {Component} from 'react';
-import Form from './form';
-import "../styles/generalInfo.css"
+/* eslint-disable react/prop-types */
+import { useState } from "react";
+import Form from "./form";
+import "../styles/generalInfo.css";
 
-class GeneralInfo extends Component{
-  constructor(props){
-    super(props);
-    this.state={
-      info:'',
-      editOn:false
-    }
-  }
+function GeneralInfo({ sendDataToApp }) {
+  const [info, setInfo] = useState("");
+  const [editOn, setEditOn] = useState(false);
 
-  getInput=(input)=>{
-    this.setState({
-      info: input,
-      editOn: false
-    });
-    this.props.sendDataToApp(input,'generalInfo')
-  }
+  const getInput = (input) => {
+    setInfo(input);
+    setEditOn(false);
 
-  handleEdit=()=>{
-    this.setState({
-      editOn:true
-    })
-  }
+    sendDataToApp(input, "generalInfo");
+  };
 
-  render(){
-    return(
-        <div className='generalInfo_container'>
-            <h2>General Information</h2>
-            {this.state.info==='' && this.state.editOn===false &&
-                  <Form input={this.getInput} previousValues={this.state.info}/>
-            }
-            {this.state.info!=='' && this.state.editOn===true &&
-                  <Form input={this.getInput} previousValues={this.state.info}/>
-            }
-            {this.state.info!=='' && this.state.editOn===false &&
-              <div className='generalInfo'>
-                <p>First Name: {this.state.info.firstName}</p>
-                <p>Last Name: {this.state.info.lastName}</p>
-                <p>Email: {this.state.info.email}</p>
-                <p>Phone: {this.state.info.phone}</p>
-                <p>Details: {this.state.info.details}</p>
-                <button className='editBtn' onClick={this.handleEdit}>Edit</button>
-              </div>
-            }
+  const handleEdit = () => {
+    setEditOn(true);
+  };
+
+  return (
+    <div className="generalInfo_container">
+      <h2>General Information</h2>
+      {info === "" && editOn === false && (
+        <Form input={getInput} previousValues={info} />
+      )}
+      {info !== "" && editOn === true && (
+        <Form input={getInput} previousValues={info} />
+      )}
+      {info !== "" && editOn === false && (
+        <div className="generalInfo">
+          <p>First Name: {info.firstName}</p>
+          <p>Last Name: {info.lastName}</p>
+          <p>Email: {info.email}</p>
+          <p>Phone: {info.phone}</p>
+          <p>Details: {info.details}</p>
+          <button type="button" className="editBtn" onClick={handleEdit}>
+            Edit
+          </button>
         </div>
-    )
-  }
+      )}
+    </div>
+  );
 }
 
 export default GeneralInfo;
