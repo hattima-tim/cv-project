@@ -25,7 +25,7 @@ const ComponentToPrint = forwardRef(
             const uniqKey = uniqid();
             return (
               <div key={uniqKey}>
-                <div className="eduInfo">
+                <div className="educationInfo">
                   <p className="printItem">{exp.titleOfStudy}</p>
                   <p className="printItem">{`${exp.schoolName} | ${exp.from}-${exp.to}`}</p>
                 </div>

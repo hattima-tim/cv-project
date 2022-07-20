@@ -30,7 +30,7 @@
   font-size: medium;
 }
 
-.eduInfo,
+.educationInfo,
 .workExperiences{
   display: flex;
   justify-content: space-between;
