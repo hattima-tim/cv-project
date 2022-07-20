@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function useExpHandler(sendDataToApp, hookIsCalledFrom) {
   const [expContainer, setExpContainer] = useState([]);
@@ -25,28 +25,21 @@ function useExpHandler(sendDataToApp, hookIsCalledFrom) {
           return expWhereEditisOpen[1] !== editedExpNumberForEditedSubmit;
         });
       });
-
-      setTimeout(() => {
-        sendDataToApp(
-          expContainer,
-          hookIsCalledFrom === "workExp" ? "workExperiences" : "eduExperiences"
-        );
-      }, 0);
     } else {
       setExpContainer((prevExpContainer) => {
         return [...prevExpContainer, input];
       });
       setNewExpIsBeingAdded(false);
       setDisplayStyleForAddNewBtn("block"); // to ensure there is a add new btn under a new exp section
-
-      setTimeout(() => {
-        sendDataToApp(
-          expContainer,
-          hookIsCalledFrom === "workExp" ? "workExperiences" : "eduExperiences"
-        );
-      }, 0);
     }
   };
+
+  useEffect(() => {
+    sendDataToApp(
+      expContainer,
+      hookIsCalledFrom === "workExp" ? "workExperiences" : "eduExperiences"
+    );
+  }, [expContainer]);
 
   const handleEdit = (event) => {
     const theExpWhereEditIsHappening = expContainer[event.target.id];
